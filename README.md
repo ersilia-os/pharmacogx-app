@@ -6,7 +6,7 @@ This project is a collaboration between the [Ersilia Open Source Initiative](htt
 
 For a more comprehensive understanding of the project, please visit [pharmacogx-embeddings](https://github.com/ersilia-os/pharmacogx-embeddings), the central GitHub repository of the project.
 
-This application provides a straightforward way to explore predictions derived from a combination of embedding-based drug-gene ranking and GPT-4 assisted re-ranking. For each drug, we offer 10 high-quality prioritized genes and 50 additional predictions of lower confidence.
+This application provides a straightforward way to explore predictions derived from a combination of embedding-based drug-gene ranking and GPT-4 assisted re-ranking. For each drug, we offer 10 high-quality prioritized genes and 40 additional predictions of lower confidence.
 
 ## How to Use
 To use this application, you first need to install the necessary dependencies. You can do this by running the following command in your terminal:
