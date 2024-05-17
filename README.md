@@ -19,7 +19,7 @@ Once the dependencies are installed, you can start the application using Streaml
 streamlit run app/app.py
 ```
 ## Online Demo
-For those who prefer not to install the application locally, we provide an online demo that you can access here: https://example.com
+For those who prefer not to install the application locally, we provide an online demo that you can access here: https://pharmacogx-app.streamlit.app
 
 ## Disclaimer
 Please be aware that the data presented in this application is the result of extensive use of machine learning and AI models. While we strive for accuracy, the results are intended for research purposes only. They should not be used to inform clinical decision-making without further validation.

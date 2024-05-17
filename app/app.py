@@ -67,7 +67,6 @@ def read_gene_tldr(gid):
 def read_top10_llm_genes(cid):
     chemical_name = cid2name[cid]
     results_file = results_dir + "/results_pairs/reranking/responses/{0}.md".format(chemical_name)
-    print(results_file)
     text = read_file_from_url(results_file)
     if text is None:
         return "No LLM gene information available"
@@ -104,6 +103,22 @@ drug_tldr = read_drug_tldr(sel_cid)
 
 st.sidebar.header("Prior TLDR drug information")
 st.sidebar.markdown(drug_tldr)
+
+@st.cache_data
+def convert_df(df):
+   return df.to_csv(index=False).encode('utf-8')
+
+csv = convert_df(df)
+
+st.sidebar.title(":arrow_down_small: Get the data")
+st.sidebar.write("You can download the main predictions data used in this application in CSV format")
+st.sidebar.download_button(
+   "Download PGx predictions",
+   csv,
+   "pharmacogx_predictions.csv",
+   "text/csv",
+   key='download-csv'
+)
 
 st.sidebar.title(":information_desk_person: About")
 st.sidebar.write("This web application has been developed by the [Ersilia Open Source Initiative](https://ersilia.io) in collaboration with the [H3D Center](https://h3d.uct.ac.za/).")
