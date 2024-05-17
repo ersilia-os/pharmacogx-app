@@ -49,7 +49,7 @@ def read_file_from_url(url):
         return None
 
 def read_drug_tldr(cid):
-    tldr_file = data_dir + "/tldr/drugs/{0}.md".format(cid)
+    tldr_file = data_dir + "/tldr_explanations/drugs/{0}.md".format(cid)
     text = read_file_from_url(tldr_file)
     if text is None:
         return "No TLDR drug information available"
@@ -57,7 +57,7 @@ def read_drug_tldr(cid):
         return text.replace("\n\n", "\n").replace("## ", "### ")
 
 def read_gene_tldr(gid):
-    tldr_file = data_dir + "/tldr/gene/{0}.md".format(gid)
+    tldr_file = data_dir + "/tldr_explanations/gene/{0}.md".format(gid)
     text = read_file_from_url(tldr_file)
     if text is None:
         return "No TLDR gene information available"
