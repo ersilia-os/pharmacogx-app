@@ -108,7 +108,11 @@ sel_cid = name2cid[cap2name[sel_chemical]]
 
 
 def genes_layout(chemical, ds, has_explanation):
-    st.title(chemical)
+    cid = name2cid[cap2name[sel_chemical]]
+    if cid[0] == cid[0].upper():
+        st.title("[{0}](https://www.pharmgkb.org/chemical/{1})".format(chemical, cid))
+    else:
+        st.title(chemical)
     for d in ds.iterrows():
         rank = d[0] + 1
         r = d[1]
@@ -124,7 +128,8 @@ def genes_layout(chemical, ds, has_explanation):
         
         # Variants
         col = cols[1]
-        col_names = ["Total variants", "Intron variants", "Missense variants"]
+        col.markdown("**Observed gene variants**")
+        col_names = ["Total", "Intron", "Missense"]
         row_names = ["Worldwide", "Africa abundant", "Africa specific"]
         R = [
             [r["total_variants"], r["intron_variants"], r["missense_variants"]],
@@ -140,6 +145,7 @@ def genes_layout(chemical, ds, has_explanation):
             if r["llm_expl"] is not None:
                 col.markdown("**Explanation**: "+r["llm_expl"])
         else:
+            col.markdown("**Scores per training set**")
             row_names = ["All genes & all outcomes", "All genes & PK outcomes", "ADME genes & PK outcomes"]
             col_names = ["Z-score", "Support"]
             R = [
